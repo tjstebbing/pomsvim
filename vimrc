@@ -3,7 +3,7 @@
 " any way you like, I like it with tea and cake personally..
 
 
-"<--------------------------This line is 80 chars wide ----------------------->
+"<---------------------------This line is 80 chars wide ----------------------->
 
 " Window Setup
 autocmd GUIEnter * :set guioptions=agitve 

@@ -16,6 +16,8 @@ better.
 * Tab key auto-complete, matches all open buffers.
 * Spell-check in text documents!
 * pyflakes lint for python code (apt-get install pyflakes), just hit F6.
+* Built in wiki, (mkdir ~/docs) then \ww to start, just type WikiWords, great for
+personal notes.
 * lots of other stuff I can't remember, you'll have to dig through vimrc ^_^
 
 
