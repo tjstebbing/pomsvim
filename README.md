@@ -9,7 +9,7 @@ full 'IDE' mode in various combos (use :sp to get more windowy goodness).
 * 80 character friendly, use F2 to toggle between one or two 80 char side-by-side
 buffers.
 * View classes and functions in a sidebar, hit F1 to toggle.
-* Python helpers galore! knows about PEP8, shows tab characters on all their 
+* Python helpers galore! knows about PEP8, shows tab characters in all their 
 gory detail so you can quickly nuke them with :retab.
 * Javascript friendly, custom tweaks make javascript highlighting and indenting
 better.
