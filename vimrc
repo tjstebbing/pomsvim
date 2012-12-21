@@ -51,6 +51,10 @@ else                     "Set the colourscheme for Terminal mode
   colorscheme default
 endif
 
+" Enable rainbow braces
+let g:rainbow_active = 1 
+let g:rainbow_operators = 1 
+
 " Highlight tabs! then use :retab to nuke them ^_^
 autocmd BufEnter *.py,*.js :SpaceHi
 
