@@ -21,6 +21,7 @@ autocmd BufEnter test_*.txt :set ft=doctest
 filetype plugin indent on
 autocmd BufEnter * :call PYTabs() 
 autocmd BufEnter *.xhtml,*.pt,*zcml :call XMLTabs() 
+"
 " Behavior Setup
 set nocompatible
 set nowrap
@@ -229,94 +230,3 @@ function! InsertDate()
     :r!date +"\%a,  \%d \%b \%Y \%T +1000"
 endfunction
 
-function TGrep()
-    let pattern = inputdialog("What would you like to find?")
-    :execute ":grep -r  --exclude=tags \"" . pattern . "\" ." 
-    :copen
-endfunction
-
-
-"###### SANDBOX, HERE BE DRAGONS! ENTER AT OWN RISK! ######"
-
-"map <F8> :call RollDice()<CR>
-"function RollDice()
-"    let dieToRoll = input("How many d10s to roll? ")
-"    let dif = input("What is the difficulty? ") 
-"    :execute ":py roll(".dieToRoll.",".dif.")" 
-"endfunction
-"
-""autocmd BufReadPost * if getline(1) =~ 'MDEFS' | call SetVar(getline(1)) | endif
-"python << __py__
-"import vim
-"
-"def getVarsFromFirstLine():
-"    l = vim.current.buffer[0]
-"    if 'MDEFS' in l:
-"        return dict([p.split('=')
-"            for p in l.split('MDEFS')[1].strip().split(',')])
-"    return {}
-"
-"def insertMacro(key):
-"    v = getVarsFromFirstLine()[str(key)]
-"    vim.command("let @r='%s'" % (v,))
-"    vim.command('normal "rp')
-"__py__
-"    
-"map m1 :py insertMacro(1)<CR>
-"map m2 :py insertMacro(2)<CR>
-"map m3 :py insertMacro(3)<CR>
-"map m4 :py insertMacro(4)<CR>
-"map m5 :py insertMacro(5)<CR>
-"map m6 :py insertMacro(6)<CR>
-"map m7 :py insertMacro(7)<CR>
-"map m8 :py insertMacro(8)<CR>
-"map m9 :py insertMacro(9)<CR>
-"
-"vmap <C-l> :py tokensToList()<CR>
-"python << __end_of_python__
-"import vim, tokenize
-"
-"def gen(lines):
-"    for l in lines:
-"        yield l
-"    yield ""
-"
-"def tokensToList():
-"    g = tokenize.generate_tokens(gen(vim.current.range).next)
-"    l = []
-"    while 1:
-"        try:
-"            t = g.next()
-"            if t[0] not in [0,1,3,4]:
-"                raise TypeError, "Invalid content selected"
-"            if t[0] == 1:
-"                l.append(t[1])
-"            if t[0] == 3:
-"                l.append(t[1].replace('"','').replace("'",''))
-"        except:
-"            break
-"    vim.current.range.append(repr(l))
-"    vim.current.range[:-1] = None
-"
-"from random import randint
-"def roll(count, dif):
-"    ones = tens = successes = 0
-"    rolls = [randint(1,10) for i in range(count)]
-"    for r in rolls:
-"        if r == 10:
-"            tens += 1
-"        elif r == 1:
-"            ones += 1
-"        if r >= dif:
-"            successes += 1
-"    botches = ones - tens
-"    if botches > 0:
-"        successes -= botches
-"
-"    string = "Success: %s, Tens: %s, Ones: %s. %s" % (
-"        successes, tens, ones, rolls) 
-"    for b in vim.buffers:
-"        if type(b.name) == type("") and b.name.endswith('die'):
-"            b.append(string)
-"    print string
-"__end_of_python__
