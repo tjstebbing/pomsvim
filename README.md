@@ -39,4 +39,5 @@ cd pomsvim
 ./install.sh  #symlinks ~/.vimrc and ~/.vim 
 gvim 
 
+:PluginInstall
 ```
