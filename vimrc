@@ -53,9 +53,8 @@ Plugin 'ervandew/supertab'              " Tabkey auto-completes
 Plugin 'vim-scripts/taglist.vim'        " Tlist (F1)
 Plugin 'vim-scripts/spacehi.vim'        " Highlight trailing spaces
 Plugin 'vim-scripts/showPairs'          " Highlight current parens 
-Plugin 'vim-scripts/Color-Sampler-Pack' " Lots of themes
-
-vim-scripts/Color-Sampler-Pack
+Plugin 'vim-scripts/moria'              " Pom's fav theme
+Plugin 'vim-scripts/Colour-Sampler-Pack'
 call vundle#end()            
 filetype plugin indent on    
 
