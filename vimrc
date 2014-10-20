@@ -47,7 +47,7 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'              " Vundle manages itself!
 Plugin 'pomke/vim-layout'               " My layout plugin (f2)
 Plugin 'tpope/vim-fugitive'             " Git helpers
-Plugin 'pangloss/vim-javascript'        " Javascript indent/highlight
+Plugin 'sheerun/vim-polyglot'           " Language support for many languages
 Plugin 'kien/rainbow_parentheses.vim'   " Rainbow braces
 Plugin 'ervandew/supertab'              " Tabkey auto-completes
 Plugin 'vim-scripts/taglist.vim'        " Tlist (F1)
@@ -66,17 +66,13 @@ filetype plugin indent on
 
 autocmd BufEnter * :cd %:p:h " make the cwd change with buffer, :e is always relative
 autocmd BufEnter *.py,*.js :SpaceHi " Highlight tabs! then use :retab to nuke them ^_^
-autocmd BufEnter *.xhtml,*.pt,*zcml :set ft=xml
-autocmd BufEnter test_*.txt :set ft=doctest
 autocmd BufEnter * :call PYTabs() 
-autocmd BufEnter *.html,*.xhtml,*.pt,*zcml :call XMLTabs() 
 autocmd BufEnter *.py :compiler pyflakes
-autocmd FileType go compiler go
 
 
 
                         """""""""""""""""""""""""""""""""""""
-                        "  Configure buffer type behaviors  "
+                        "              Colours              "
                         """""""""""""""""""""""""""""""""""""  
 
 
