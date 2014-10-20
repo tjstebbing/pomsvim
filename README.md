@@ -1,5 +1,5 @@
 
-![Pomke's Vim](https://github.com/pomke/pomsvim/raw/master/doc/screenshot2.png)
+![Pomke's Vim](https://github.com/pomke/pomsvim/raw/master/docs/screenshot2.png)
 
 ## Some highlights
 
@@ -24,7 +24,7 @@ personal notes.
 
 ## What does all of that look like?
 
-![Pomke's Vim](https://github.com/pomke/pomsvim/raw/master/doc/screenshot1.png)
+![Pomke's Vim](https://github.com/pomke/pomsvim/raw/master/docs/screenshot1.png)
 
 Showing two split buffers, javascript on the left, python on the right, with some
 suggested improvements from pyflakes on the bottom (F6) 
