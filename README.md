@@ -37,7 +37,6 @@ apt-get install vim pyflakes aspell-en exuberant-ctags
 git clone https://github.com/pomke/pomsvim.git
 cd pomsvim
 ./install.sh  #symlinks ~/.vimrc and ~/.vim 
-gvim 
 
-:PluginInstall
+vim +PluginInstall +qall
 ```
