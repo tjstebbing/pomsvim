@@ -14,24 +14,24 @@
 filetype off 
 set nocompatible
 set nowrap
-set hls                                     " highlight searches
+set hls                                         " highlight searches
 set scrolloff=10
 set noswapfile
 set hidden
 set wildmenu
 set updatetime=1000
-set history=50                              " How many lines of history to keep
-set showcmd                                 " Auto-complete commands <tab>
-set incsearch                               " Incremental searching
-set autoindent                              " Indent code as you type
-set mouse=a                                 " Enable mouse support
-set mousemodel=popup_setpos                 " Modify the mouse behaviour
+set history=50                                  " How many lines of history to keep
+set showcmd                                     " Auto-complete commands <tab>
+set incsearch                                   " Incremental searching
+set autoindent                                  " Indent code as you type
+set mouse=a                                     " Enable mouse support
+set mousemodel=popup_setpos                     " Modify the mouse behaviour
 syntax on
-set ruler                                   " Show cursor position x/y in statusbar
-set lcs=tab:^.                              " Show us those ugly tabspaces
+set ruler                                       " Show cursor position x/y in statusbar
+set lcs=tab:^.                                  " Show us those ugly tabspaces
 set list
-set gfn=Courier\ New\ 11                    " Font Setup
-autocmd GUIEnter * :set guioptions=agitve   " Window Setup
+set gfn=Droid\ Sans\ Mono\ for\ Powerline\ 11   " Font Setup
+autocmd GUIEnter * :set guioptions=agitve       " Window Setup
 vnoremap p <Esc>:let current_reg = @"<CR>gvs<C-R>=current_reg<CR><Esc>
 
 
@@ -55,6 +55,10 @@ Plugin 'vim-scripts/spacehi.vim'        " Highlight trailing spaces
 Plugin 'vim-scripts/showPairs'          " Highlight current parens 
 Plugin 'vim-scripts/moria'              " Pom's fav theme
 Plugin 'vim-scripts/Colour-Sampler-Pack'
+Plugin 'bling/vim-airline'              " much nicer prompt/status
+Plugin 'mbbill/undotree'                " undo tree searching
+Plugin 'airblade/vim-gitgutter'         " show git status in the gutter
+Plugin 'scrooloose/syntastic'           " syntax checker handling
 call vundle#end()            
 filetype plugin indent on    
 
@@ -93,13 +97,14 @@ endif
 
 " Layout management
 map <F2> :call ToggleLayout()<CR>  
+map <F4> :call UndotreeToggle()<CR>
+map <F3> :GitGutterToggle<CR>
 map! <F1> <Esc>:Tlist<CR>
 map <F1> :Tlist<CR>
 
 " Compiler (lint) 
 map! <F6> <Esc>:make<CR>:cw<CR>
 map <F6> :make<CR>:cw<CR>
-map <F3> <C-]>
 
 " Ctrl+s saves file
 map! <C-s> <ESC>:w<CR>
@@ -108,7 +113,7 @@ map <C-s> :w<CR>
 " quick buffer switching (Don't seem to use this much anymore..)
 nmap <delete> :bp<CR>
 
-" do some cool formatting of the current block
+" do some cool format:call GitGutterToggleting of the current block
 map <C-f> ==
 
 
@@ -116,6 +121,14 @@ map <C-f> ==
                               """"""""""""""""""""""""""
                               "  Plugin configuration  "
                               """"""""""""""""""""""""""
+
+if has("gui_running")    
+    let g:gitgutter_sign_column_always = 1
+    set laststatus=2
+else                     
+    let g:gitgutter_enabled = 0
+endif
+
 
 au VimEnter * RainbowParenthesesToggle
 au Syntax * RainbowParenthesesLoadRound
@@ -131,9 +144,16 @@ let Tlist_Compact_Format = 1
 let Tlist_Enable_Fold_Column = 0
 let Tlist_Inc_Winwidth = 1
 
+
 let spell_language_list = "british"
 
+let g:undotree_WindowLayout = 4
 
+
+" Airline config 
+set noshowmode
+let g:airline_powerline_fonts = 1
+let g:airline_theme = 'base16'
                               """"""""""""""""""""""""""
                               "    Helper functions    "
                               """"""""""""""""""""""""""
